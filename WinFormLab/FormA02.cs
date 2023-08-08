@@ -16,5 +16,10 @@ namespace WinFormLab
     {
       InitializeComponent();
     }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      textBox1.AppendText($"今天天氣真好@{DateTime.Now:HH:mm:ss}{Environment.NewLine}");
+    }
   }
 }

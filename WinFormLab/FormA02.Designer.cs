@@ -28,32 +28,84 @@
     /// </summary>
     private void InitializeComponent()
     {
-      label1 = new Label();
+      menuStrip1 = new MenuStrip();
+      功能２的選單ToolStripMenuItem = new ToolStripMenuItem();
+      panel1 = new Panel();
+      button1 = new Button();
+      textBox1 = new TextBox();
+      menuStrip1.SuspendLayout();
+      panel1.SuspendLayout();
       SuspendLayout();
       // 
-      // label1
+      // menuStrip1
       // 
-      label1.AutoSize = true;
-      label1.Location = new Point(62, 65);
-      label1.Name = "label1";
-      label1.Size = new Size(97, 15);
-      label1.TabIndex = 0;
-      label1.Text = "這裡是 FormA02";
+      menuStrip1.ImageScalingSize = new Size(20, 20);
+      menuStrip1.Items.AddRange(new ToolStripItem[] { 功能２的選單ToolStripMenuItem });
+      menuStrip1.Location = new Point(0, 0);
+      menuStrip1.Name = "menuStrip1";
+      menuStrip1.Size = new Size(1029, 27);
+      menuStrip1.TabIndex = 1;
+      menuStrip1.Text = "menuStrip1";
+      // 
+      // 功能２的選單ToolStripMenuItem
+      // 
+      功能２的選單ToolStripMenuItem.Name = "功能２的選單ToolStripMenuItem";
+      功能２的選單ToolStripMenuItem.Size = new Size(113, 23);
+      功能２的選單ToolStripMenuItem.Text = "功能２的選單";
+      // 
+      // panel1
+      // 
+      panel1.Controls.Add(button1);
+      panel1.Dock = DockStyle.Top;
+      panel1.Location = new Point(0, 27);
+      panel1.Name = "panel1";
+      panel1.Size = new Size(1029, 98);
+      panel1.TabIndex = 2;
+      // 
+      // button1
+      // 
+      button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+      button1.Location = new Point(884, 19);
+      button1.Name = "button1";
+      button1.Size = new Size(133, 29);
+      button1.TabIndex = 0;
+      button1.Text = "今天天氣真好";
+      button1.UseVisualStyleBackColor = true;
+      button1.Click += button1_Click;
+      // 
+      // textBox1
+      // 
+      textBox1.Dock = DockStyle.Fill;
+      textBox1.Location = new Point(0, 125);
+      textBox1.Multiline = true;
+      textBox1.Name = "textBox1";
+      textBox1.Size = new Size(1029, 445);
+      textBox1.TabIndex = 3;
       // 
       // FormA02
       // 
-      AutoScaleDimensions = new SizeF(7F, 15F);
+      AutoScaleDimensions = new SizeF(9F, 19F);
       AutoScaleMode = AutoScaleMode.Font;
-      ClientSize = new Size(800, 450);
-      Controls.Add(label1);
+      ClientSize = new Size(1029, 570);
+      Controls.Add(textBox1);
+      Controls.Add(panel1);
+      Controls.Add(menuStrip1);
+      MainMenuStrip = menuStrip1;
+      Margin = new Padding(4);
       Name = "FormA02";
       Text = "FormA02";
+      menuStrip1.ResumeLayout(false);
+      menuStrip1.PerformLayout();
+      panel1.ResumeLayout(false);
       ResumeLayout(false);
       PerformLayout();
     }
 
     #endregion
-
-    private Label label1;
+    private MenuStrip menuStrip1;
+    private ToolStripMenuItem 功能２的選單ToolStripMenuItem;
+    private Panel panel1;
+    private Button button1;
+    private TextBox textBox1;
   }
 }
