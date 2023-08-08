@@ -33,6 +33,7 @@
       panel1 = new Panel();
       button1 = new Button();
       textBox1 = new TextBox();
+      label1 = new Label();
       menuStrip1.SuspendLayout();
       panel1.SuspendLayout();
       SuspendLayout();
@@ -55,6 +56,7 @@
       // 
       // panel1
       // 
+      panel1.Controls.Add(label1);
       panel1.Controls.Add(button1);
       panel1.Dock = DockStyle.Top;
       panel1.Location = new Point(0, 27);
@@ -82,6 +84,15 @@
       textBox1.Size = new Size(1029, 445);
       textBox1.TabIndex = 3;
       // 
+      // label1
+      // 
+      label1.AutoSize = true;
+      label1.Location = new Point(55, 39);
+      label1.Name = "label1";
+      label1.Size = new Size(129, 19);
+      label1.TabIndex = 1;
+      label1.Text = "處理批次計算問題";
+      // 
       // FormA02
       // 
       AutoScaleDimensions = new SizeF(9F, 19F);
@@ -97,6 +108,7 @@
       menuStrip1.ResumeLayout(false);
       menuStrip1.PerformLayout();
       panel1.ResumeLayout(false);
+      panel1.PerformLayout();
       ResumeLayout(false);
       PerformLayout();
     }
@@ -107,5 +119,6 @@
     private Panel panel1;
     private Button button1;
     private TextBox textBox1;
+    private Label label1;
   }
 }

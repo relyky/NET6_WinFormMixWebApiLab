@@ -30,5 +30,10 @@ namespace WinFormLab
     {
       OpenForm(typeof(FormA02));
     }
+
+    private void menuFormA03_Click(object sender, EventArgs e)
+    {
+      OpenForm(typeof(FormA03));
+    }
   }
 }
