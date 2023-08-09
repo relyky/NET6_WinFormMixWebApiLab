@@ -1,9 +1,17 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
 namespace WinFormLab
 {
   public partial class MainForm : Form
   {
-    public MainForm()
+    ILogger<MainForm> _logger;
+    IServiceProvider _provider;
+
+    public MainForm(IServiceProvider provider, ILogger<MainForm> logger)
     {
+      _logger = logger;
+      _provider = provider;
       InitializeComponent();
     }
 
@@ -12,9 +20,14 @@ namespace WinFormLab
       Form? child = this.MdiChildren.FirstOrDefault(c => c.GetType() == formType);
       if (child == null)
       {
-        var ctr = formType.GetConstructor(Type.EmptyTypes);
-        child = (Form)ctr!.Invoke(null);
+        child = (Form)_provider.GetRequiredService(formType);
         child.MdiParent = this;
+
+        //var ctr = formType.GetConstructor(Type.EmptyTypes);
+        //child = (Form)ctr!.Invoke(null);
+        //child.MdiParent = this;
+
+        _logger.LogInformation($"建立新視窗：{formType.FullName}");
       }
 
       child.Show();

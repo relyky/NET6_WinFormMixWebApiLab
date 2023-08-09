@@ -46,9 +46,11 @@
       // 
       // dataGridView1
       // 
+      dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
       dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnPersonId, ColumnName, ColumnSurname, ColumnProfession });
       dataGridView1.Location = new Point(12, 177);
+      dataGridView1.MultiSelect = false;
       dataGridView1.Name = "dataGridView1";
       dataGridView1.ReadOnly = true;
       dataGridView1.RowHeadersWidth = 51;
@@ -65,7 +67,6 @@
       ColumnPersonId.MinimumWidth = 6;
       ColumnPersonId.Name = "ColumnPersonId";
       ColumnPersonId.ReadOnly = true;
-      ColumnPersonId.Width = 125;
       // 
       // ColumnName
       // 
@@ -74,7 +75,6 @@
       ColumnName.MinimumWidth = 6;
       ColumnName.Name = "ColumnName";
       ColumnName.ReadOnly = true;
-      ColumnName.Width = 125;
       // 
       // ColumnSurname
       // 
@@ -83,7 +83,6 @@
       ColumnSurname.MinimumWidth = 6;
       ColumnSurname.Name = "ColumnSurname";
       ColumnSurname.ReadOnly = true;
-      ColumnSurname.Width = 125;
       // 
       // ColumnProfession
       // 
@@ -92,7 +91,6 @@
       ColumnProfession.MinimumWidth = 6;
       ColumnProfession.Name = "ColumnProfession";
       ColumnProfession.ReadOnly = true;
-      ColumnProfession.Width = 125;
       // 
       // label1
       // 

@@ -29,11 +29,13 @@
     private void InitializeComponent()
     {
       menuStrip1 = new MenuStrip();
-      功能２的選單ToolStripMenuItem = new ToolStripMenuItem();
+      toolStripMenuItemA02 = new ToolStripMenuItem();
+      menuA02Go = new ToolStripMenuItem();
       panel1 = new Panel();
+      label1 = new Label();
       button1 = new Button();
       textBox1 = new TextBox();
-      label1 = new Label();
+      btnSwagger = new Button();
       menuStrip1.SuspendLayout();
       panel1.SuspendLayout();
       SuspendLayout();
@@ -41,21 +43,30 @@
       // menuStrip1
       // 
       menuStrip1.ImageScalingSize = new Size(20, 20);
-      menuStrip1.Items.AddRange(new ToolStripItem[] { 功能２的選單ToolStripMenuItem });
+      menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemA02 });
       menuStrip1.Location = new Point(0, 0);
       menuStrip1.Name = "menuStrip1";
       menuStrip1.Size = new Size(1029, 27);
       menuStrip1.TabIndex = 1;
       menuStrip1.Text = "menuStrip1";
       // 
-      // 功能２的選單ToolStripMenuItem
+      // toolStripMenuItemA02
       // 
-      功能２的選單ToolStripMenuItem.Name = "功能２的選單ToolStripMenuItem";
-      功能２的選單ToolStripMenuItem.Size = new Size(113, 23);
-      功能２的選單ToolStripMenuItem.Text = "功能２的選單";
+      toolStripMenuItemA02.DropDownItems.AddRange(new ToolStripItem[] { menuA02Go });
+      toolStripMenuItemA02.Name = "toolStripMenuItemA02";
+      toolStripMenuItemA02.Size = new Size(113, 23);
+      toolStripMenuItemA02.Text = "功能２的選單";
+      // 
+      // menuA02Go
+      // 
+      menuA02Go.Name = "menuA02Go";
+      menuA02Go.Size = new Size(180, 26);
+      menuA02Go.Text = "menuA02Go";
+      menuA02Go.Click += menuA02Go_Click;
       // 
       // panel1
       // 
+      panel1.Controls.Add(btnSwagger);
       panel1.Controls.Add(label1);
       panel1.Controls.Add(button1);
       panel1.Dock = DockStyle.Top;
@@ -63,6 +74,15 @@
       panel1.Name = "panel1";
       panel1.Size = new Size(1029, 98);
       panel1.TabIndex = 2;
+      // 
+      // label1
+      // 
+      label1.AutoSize = true;
+      label1.Location = new Point(55, 39);
+      label1.Name = "label1";
+      label1.Size = new Size(129, 19);
+      label1.TabIndex = 1;
+      label1.Text = "處理批次計算問題";
       // 
       // button1
       // 
@@ -84,14 +104,15 @@
       textBox1.Size = new Size(1029, 445);
       textBox1.TabIndex = 3;
       // 
-      // label1
+      // btnSwagger
       // 
-      label1.AutoSize = true;
-      label1.Location = new Point(55, 39);
-      label1.Name = "label1";
-      label1.Size = new Size(129, 19);
-      label1.TabIndex = 1;
-      label1.Text = "處理批次計算問題";
+      btnSwagger.Location = new Point(717, 20);
+      btnSwagger.Name = "btnSwagger";
+      btnSwagger.Size = new Size(161, 29);
+      btnSwagger.TabIndex = 2;
+      btnSwagger.Text = "Call Swagger";
+      btnSwagger.UseVisualStyleBackColor = true;
+      btnSwagger.Click += btnSwagger_Click;
       // 
       // FormA02
       // 
@@ -115,10 +136,12 @@
 
     #endregion
     private MenuStrip menuStrip1;
-    private ToolStripMenuItem 功能２的選單ToolStripMenuItem;
+    private ToolStripMenuItem toolStripMenuItemA02;
     private Panel panel1;
     private Button button1;
     private TextBox textBox1;
     private Label label1;
+    private ToolStripMenuItem menuA02Go;
+    private Button btnSwagger;
   }
 }
