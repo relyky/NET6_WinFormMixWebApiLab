@@ -1,5 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
+using Refit;
 
 namespace WinFormLab;
 
@@ -11,31 +14,54 @@ internal static class Program
   [STAThread]
   static void Main()
   {
-    // To customize application configuration such as set high DPI settings or default font,
-    // see https://aka.ms/applicationconfiguration.
-    ApplicationConfiguration.Initialize();
+    Log.Logger = new LoggerConfiguration()
+      .MinimumLevel.Debug()
+      .WriteTo.File("D:/Log/myapp.txt", rollingInterval: RollingInterval.Day)
+      .CreateLogger();
 
-    var services = new ServiceCollection();
-    ConfigureServices(services);
-    
-    using (var provider = services.BuildServiceProvider())
+    try
     {
-      var mainForm = provider.GetRequiredService<MainForm>();
-      Application.Run(mainForm);
+      Log.Information($"Host init.");
+
+      // To customize application configuration such as set high DPI settings or default font,
+      // see https://aka.ms/applicationconfiguration.
+      ApplicationConfiguration.Initialize();
+
+      var builder = new HostBuilder();
+      builder.UseSerilog();
+      builder.ConfigureServices((ctx, services) =>
+      {
+        //## 註冊 RefitClient API。 --- 手動一個一個註冊
+        services.AddRefitClient<WinFormLab.RefitClient.IWeatherForecastApi>()
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri("https://localhost:7232/"));
+
+        // 註冊應用表單
+        services.AddScoped<MainForm>();
+        services.AddScoped<FormA01>();
+        services.AddScoped<FormA02>();
+        services.AddScoped<FormA03>();
+      });
+
+      var host = builder.Build();
+      //-----------------------------------------------------------------------
+      Log.Information($"Host start.");
+
+      using (var scope = host.Services.CreateScope())
+      {
+        var provider = scope.ServiceProvider;
+        var mainForm = provider.GetRequiredService<MainForm>();
+        Application.Run(mainForm);
+      }
+
+      Log.Information($"Host exit.");
     }
-  }
-
-  static void ConfigureServices(ServiceCollection services)
-  {
-    services.AddLogging(configure => configure.AddConsole());
-
-    //        .AddScoped<IBusinessLayer, CBusinessLayer>()
-    //        .AddScoped<IBusinessLayer, CBusinessLayer>()
-    //        .AddSingleton<IDataAccessLayer, CDataAccessLayer>();
-
-    services.AddScoped<MainForm>();
-    services.AddScoped<FormA01>();
-    services.AddScoped<FormA02>();
-    services.AddScoped<FormA03>();
+    catch (Exception ex)
+    {
+      Log.Fatal(ex, $"Host terminated unexpectedly.");
+    }
+    finally
+    {
+      Log.CloseAndFlush();
+    }
   }
 }

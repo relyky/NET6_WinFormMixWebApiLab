@@ -9,13 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormLab.RefitClient;
 
 namespace WinFormLab
 {
   public partial class FormA02 : Form
   {
-    public FormA02()
+    IWeatherForecastApi bizApi;
+
+    public FormA02(IWeatherForecastApi _bizApi)
     {
+      bizApi = _bizApi;
       InitializeComponent();
     }
 
@@ -34,7 +38,15 @@ namespace WinFormLab
       using var http = new HttpClient();
       var api = new Client(@"https://localhost:7232", http);
       var result = api.WeatherForecast();
-      var json = JsonConvert.SerializeObject(result); 
+      var json = JsonConvert.SerializeObject(result);
+
+      textBox1.AppendText($"{json}{Environment.NewLine}");
+    }
+
+    private void btnRefit_Click(object sender, EventArgs e)
+    {
+      var result = bizApi.WeatherForecastAsync().Result;;
+      var json = JsonConvert.SerializeObject(result);
 
       textBox1.AppendText($"{json}{Environment.NewLine}");
     }

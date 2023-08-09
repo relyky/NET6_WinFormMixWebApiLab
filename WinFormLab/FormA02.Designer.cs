@@ -32,10 +32,11 @@
       toolStripMenuItemA02 = new ToolStripMenuItem();
       menuA02Go = new ToolStripMenuItem();
       panel1 = new Panel();
+      btnSwagger = new Button();
       label1 = new Label();
       button1 = new Button();
       textBox1 = new TextBox();
-      btnSwagger = new Button();
+      btnRefit = new Button();
       menuStrip1.SuspendLayout();
       panel1.SuspendLayout();
       SuspendLayout();
@@ -66,6 +67,7 @@
       // 
       // panel1
       // 
+      panel1.Controls.Add(btnRefit);
       panel1.Controls.Add(btnSwagger);
       panel1.Controls.Add(label1);
       panel1.Controls.Add(button1);
@@ -74,6 +76,16 @@
       panel1.Name = "panel1";
       panel1.Size = new Size(1029, 98);
       panel1.TabIndex = 2;
+      // 
+      // btnSwagger
+      // 
+      btnSwagger.Location = new Point(717, 20);
+      btnSwagger.Name = "btnSwagger";
+      btnSwagger.Size = new Size(161, 29);
+      btnSwagger.TabIndex = 2;
+      btnSwagger.Text = "Call Swagger";
+      btnSwagger.UseVisualStyleBackColor = true;
+      btnSwagger.Click += btnSwagger_Click;
       // 
       // label1
       // 
@@ -104,15 +116,15 @@
       textBox1.Size = new Size(1029, 445);
       textBox1.TabIndex = 3;
       // 
-      // btnSwagger
+      // btnRefit
       // 
-      btnSwagger.Location = new Point(717, 20);
-      btnSwagger.Name = "btnSwagger";
-      btnSwagger.Size = new Size(161, 29);
-      btnSwagger.TabIndex = 2;
-      btnSwagger.Text = "Call Swagger";
-      btnSwagger.UseVisualStyleBackColor = true;
-      btnSwagger.Click += btnSwagger_Click;
+      btnRefit.Location = new Point(550, 20);
+      btnRefit.Name = "btnRefit";
+      btnRefit.Size = new Size(161, 29);
+      btnRefit.TabIndex = 3;
+      btnRefit.Text = "Call Refit";
+      btnRefit.UseVisualStyleBackColor = true;
+      btnRefit.Click += btnRefit_Click;
       // 
       // FormA02
       // 
@@ -143,5 +155,6 @@
     private Label label1;
     private ToolStripMenuItem menuA02Go;
     private Button btnSwagger;
+    private Button btnRefit;
   }
 }
