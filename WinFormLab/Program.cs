@@ -12,7 +12,7 @@ internal static class Program
   ///  The main entry point for the application.
   /// </summary>
   [STAThread]
-  static void Main()
+  static void Main(string[] args)
   {
     Log.Logger = new LoggerConfiguration()
       .MinimumLevel.Debug()
@@ -27,8 +27,8 @@ internal static class Program
       // see https://aka.ms/applicationconfiguration.
       ApplicationConfiguration.Initialize();
 
-      var builder = new HostBuilder();
-      builder.UseSerilog();
+      var builder = Host.CreateDefaultBuilder(args);
+
       builder.ConfigureServices((ctx, services) =>
       {
         //## 註冊 RefitClient API。 --- 手動一個一個註冊
@@ -37,10 +37,12 @@ internal static class Program
 
         // 註冊應用表單
         services.AddScoped<MainForm>();
-        services.AddScoped<FormA01>();
-        services.AddScoped<FormA02>();
-        services.AddScoped<FormA03>();
+        services.AddTransient<FormA01>();
+        services.AddTransient<FormA02>();
+        services.AddTransient<FormA03>();
       });
+
+      builder.UseSerilog();
 
       var host = builder.Build();
       //-----------------------------------------------------------------------

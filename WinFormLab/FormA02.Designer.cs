@@ -32,11 +32,12 @@
       toolStripMenuItemA02 = new ToolStripMenuItem();
       menuA02Go = new ToolStripMenuItem();
       panel1 = new Panel();
+      btnRefit = new Button();
       btnSwagger = new Button();
       label1 = new Label();
       button1 = new Button();
       textBox1 = new TextBox();
-      btnRefit = new Button();
+      btnShowEnv = new Button();
       menuStrip1.SuspendLayout();
       panel1.SuspendLayout();
       SuspendLayout();
@@ -67,6 +68,7 @@
       // 
       // panel1
       // 
+      panel1.Controls.Add(btnShowEnv);
       panel1.Controls.Add(btnRefit);
       panel1.Controls.Add(btnSwagger);
       panel1.Controls.Add(label1);
@@ -76,6 +78,16 @@
       panel1.Name = "panel1";
       panel1.Size = new Size(1029, 98);
       panel1.TabIndex = 2;
+      // 
+      // btnRefit
+      // 
+      btnRefit.Location = new Point(550, 20);
+      btnRefit.Name = "btnRefit";
+      btnRefit.Size = new Size(161, 29);
+      btnRefit.TabIndex = 3;
+      btnRefit.Text = "Call Refit";
+      btnRefit.UseVisualStyleBackColor = true;
+      btnRefit.Click += btnRefit_Click;
       // 
       // btnSwagger
       // 
@@ -116,15 +128,15 @@
       textBox1.Size = new Size(1029, 445);
       textBox1.TabIndex = 3;
       // 
-      // btnRefit
+      // btnShowEnv
       // 
-      btnRefit.Location = new Point(550, 20);
-      btnRefit.Name = "btnRefit";
-      btnRefit.Size = new Size(161, 29);
-      btnRefit.TabIndex = 3;
-      btnRefit.Text = "Call Refit";
-      btnRefit.UseVisualStyleBackColor = true;
-      btnRefit.Click += btnRefit_Click;
+      btnShowEnv.Location = new Point(383, 19);
+      btnShowEnv.Name = "btnShowEnv";
+      btnShowEnv.Size = new Size(161, 29);
+      btnShowEnv.TabIndex = 4;
+      btnShowEnv.Text = "Show Env.";
+      btnShowEnv.UseVisualStyleBackColor = true;
+      btnShowEnv.Click += btnShowEnv_Click;
       // 
       // FormA02
       // 
@@ -156,5 +168,6 @@
     private ToolStripMenuItem menuA02Go;
     private Button btnSwagger;
     private Button btnRefit;
+    private Button btnShowEnv;
   }
 }

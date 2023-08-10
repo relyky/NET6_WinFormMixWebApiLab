@@ -1,9 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using SwagClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,11 +18,15 @@ namespace WinFormLab
 {
   public partial class FormA02 : Form
   {
-    IWeatherForecastApi bizApi;
+    IWeatherForecastApi _bizApi;
+    IHostEnvironment _env;
+    IConfiguration _cfg;
 
-    public FormA02(IWeatherForecastApi _bizApi)
+    public FormA02(IWeatherForecastApi bizApi, IHostEnvironment env, IConfiguration cfg)
     {
-      bizApi = _bizApi;
+      _bizApi = bizApi;
+      _env = env;
+      _cfg = cfg;
       InitializeComponent();
     }
 
@@ -45,10 +52,30 @@ namespace WinFormLab
 
     private void btnRefit_Click(object sender, EventArgs e)
     {
-      var result = bizApi.WeatherForecastAsync().Result;;
-      var json = JsonConvert.SerializeObject(result);
+      try
+      {
+        var result = _bizApi.WeatherForecastAsync().Result; ;
+        var json = JsonConvert.SerializeObject(result);
 
-      textBox1.AppendText($"{json}{Environment.NewLine}");
+        textBox1.AppendText($"{json}{Environment.NewLine}");
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message, "出現例外！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        Debugger.Break();
+      }
+    }
+
+    private void btnShowEnv_Click(object sender, EventArgs e)
+    {
+      bool IsDevelopment = _env.IsDevelopment();
+      bool IsProduction = _env.IsProduction();
+
+      textBox1.AppendText($"IsDevelopment:{IsDevelopment}, IsProduction:{IsProduction}{Environment.NewLine}");
+
+      string myEnvVar = _cfg.GetValue<string>("MyEnvVar") ?? "nil";
+
+      textBox1.AppendText($"MyEnvVar: {myEnvVar}{Environment.NewLine}");
     }
   }
 }
