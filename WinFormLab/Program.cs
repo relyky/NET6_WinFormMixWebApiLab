@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Refit;
+using Microsoft.Extensions.Configuration;
 
 namespace WinFormLab;
 
@@ -31,9 +32,14 @@ internal static class Program
 
       builder.ConfigureServices((ctx, services) =>
       {
+        var config = ctx.Configuration;
+        
         //## 註冊 RefitClient API。 --- 手動一個一個註冊
         services.AddRefitClient<WinFormLab.RefitClient.IWeatherForecastApi>()
-          .ConfigureHttpClient(http => http.BaseAddress = new Uri("https://localhost:7232/"));
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!));
+
+        services.AddRefitClient<WinFormLab.RefitClient.IFileHandleApi>()
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!));
 
         // 註冊應用表單
         services.AddScoped<MainForm>();
