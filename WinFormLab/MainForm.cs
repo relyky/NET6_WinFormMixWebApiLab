@@ -57,5 +57,17 @@ namespace WinFormLab
     {
       OpenForm(typeof(FormA03));
     }
+
+    private void menuFormA04_Click(object sender, EventArgs e)
+    {
+      OpenForm(typeof(FormA04));
+    }
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+      // login
+      MessageBox.Show("進行登入程序...未實作");
+      // call dialog...
+    }
   }
 }

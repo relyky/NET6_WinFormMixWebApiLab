@@ -73,7 +73,8 @@ public class FileHandleController : ControllerBase
       uploadResults.Add(new UploadResult
       {
         FileName = trustedFileNameForDisplay,
-        StoredFileName = trustedFileNameForStorage
+        StoredFileName = trustedFileNameForStorage,
+        ContentType = file.ContentType
       });
     }
 

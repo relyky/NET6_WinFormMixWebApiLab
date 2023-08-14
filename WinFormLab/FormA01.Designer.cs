@@ -34,13 +34,14 @@
       第一個功能ToolStripMenuItem = new ToolStripMenuItem();
       第二個指令ToolStripMenuItem = new ToolStripMenuItem();
       功能作業群ＢToolStripMenuItem = new ToolStripMenuItem();
+      label2 = new Label();
       menuStrip1.SuspendLayout();
       SuspendLayout();
       // 
       // label1
       // 
       label1.AutoSize = true;
-      label1.Location = new Point(96, 133);
+      label1.Location = new Point(90, 75);
       label1.Name = "label1";
       label1.Size = new Size(123, 19);
       label1.TabIndex = 0;
@@ -66,13 +67,13 @@
       // 第一個功能ToolStripMenuItem
       // 
       第一個功能ToolStripMenuItem.Name = "第一個功能ToolStripMenuItem";
-      第一個功能ToolStripMenuItem.Size = new Size(224, 26);
+      第一個功能ToolStripMenuItem.Size = new Size(167, 26);
       第一個功能ToolStripMenuItem.Text = "第一個功能";
       // 
       // 第二個指令ToolStripMenuItem
       // 
       第二個指令ToolStripMenuItem.Name = "第二個指令ToolStripMenuItem";
-      第二個指令ToolStripMenuItem.Size = new Size(224, 26);
+      第二個指令ToolStripMenuItem.Size = new Size(167, 26);
       第二個指令ToolStripMenuItem.Text = "第二個指令";
       // 
       // 功能作業群ＢToolStripMenuItem
@@ -81,11 +82,23 @@
       功能作業群ＢToolStripMenuItem.Size = new Size(113, 23);
       功能作業群ＢToolStripMenuItem.Text = "功能作業群Ｂ";
       // 
+      // label2
+      // 
+      label2.AutoSize = true;
+      label2.Font = new Font("微軟正黑體", 48F, FontStyle.Regular, GraphicsUnit.Point);
+      label2.ForeColor = SystemColors.Highlight;
+      label2.Location = new Point(72, 141);
+      label2.Name = "label2";
+      label2.Size = new Size(623, 101);
+      label2.TabIndex = 2;
+      label2.Text = "哈囉 你好世界。";
+      // 
       // FormA01
       // 
       AutoScaleDimensions = new SizeF(9F, 19F);
       AutoScaleMode = AutoScaleMode.Font;
       ClientSize = new Size(965, 572);
+      Controls.Add(label2);
       Controls.Add(label1);
       Controls.Add(menuStrip1);
       MainMenuStrip = menuStrip1;
@@ -105,5 +118,6 @@
     private ToolStripMenuItem 功能作業群ＢToolStripMenuItem;
     private ToolStripMenuItem 第一個功能ToolStripMenuItem;
     private ToolStripMenuItem 第二個指令ToolStripMenuItem;
+    private Label label2;
   }
 }

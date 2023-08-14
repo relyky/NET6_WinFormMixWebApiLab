@@ -33,6 +33,7 @@
       menuFormA01 = new ToolStripMenuItem();
       menuFormA02 = new ToolStripMenuItem();
       menuFormA03 = new ToolStripMenuItem();
+      menuFormA04 = new ToolStripMenuItem();
       menuStrip1.SuspendLayout();
       SuspendLayout();
       // 
@@ -49,7 +50,7 @@
       // 
       // menuGroupA
       // 
-      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03 });
+      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03, menuFormA04 });
       menuGroupA.Name = "menuGroupA";
       menuGroupA.Size = new Size(98, 24);
       menuGroupA.Text = "開啟新視窗";
@@ -75,6 +76,13 @@
       menuFormA03.Text = "FormA03";
       menuFormA03.Click += menuFormA03_Click;
       // 
+      // menuFormA04
+      // 
+      menuFormA04.Name = "menuFormA04";
+      menuFormA04.Size = new Size(224, 26);
+      menuFormA04.Text = "FormA04";
+      menuFormA04.Click += menuFormA04_Click;
+      // 
       // MainForm
       // 
       AutoScaleDimensions = new SizeF(9F, 19F);
@@ -85,6 +93,7 @@
       MainMenuStrip = menuStrip1;
       Name = "MainForm";
       Text = "MainForm";
+      Load += MainForm_Load;
       menuStrip1.ResumeLayout(false);
       menuStrip1.PerformLayout();
       ResumeLayout(false);
@@ -98,5 +107,6 @@
     private ToolStripMenuItem menuFormA01;
     private ToolStripMenuItem menuFormA02;
     private ToolStripMenuItem menuFormA03;
+    private ToolStripMenuItem menuFormA04;
   }
 }
