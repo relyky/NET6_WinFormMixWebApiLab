@@ -34,6 +34,9 @@
       menuFormA02 = new ToolStripMenuItem();
       menuFormA03 = new ToolStripMenuItem();
       menuFormA04 = new ToolStripMenuItem();
+      toolStripSeparator1 = new ToolStripSeparator();
+      menuLogin = new ToolStripMenuItem();
+      menuLogout = new ToolStripMenuItem();
       menuStrip1.SuspendLayout();
       SuspendLayout();
       // 
@@ -50,7 +53,7 @@
       // 
       // menuGroupA
       // 
-      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03, menuFormA04 });
+      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03, menuFormA04, toolStripSeparator1, menuLogin, menuLogout });
       menuGroupA.Name = "menuGroupA";
       menuGroupA.Size = new Size(98, 24);
       menuGroupA.Text = "開啟新視窗";
@@ -83,6 +86,25 @@
       menuFormA04.Text = "FormA04";
       menuFormA04.Click += menuFormA04_Click;
       // 
+      // toolStripSeparator1
+      // 
+      toolStripSeparator1.Name = "toolStripSeparator1";
+      toolStripSeparator1.Size = new Size(221, 6);
+      // 
+      // menuLogin
+      // 
+      menuLogin.Name = "menuLogin";
+      menuLogin.Size = new Size(224, 26);
+      menuLogin.Text = "登入";
+      menuLogin.Click += menuLogin_Click;
+      // 
+      // menuLogout
+      // 
+      menuLogout.Name = "menuLogout";
+      menuLogout.Size = new Size(224, 26);
+      menuLogout.Text = "登出";
+      menuLogout.Click += menuLogout_Click;
+      // 
       // MainForm
       // 
       AutoScaleDimensions = new SizeF(9F, 19F);
@@ -108,5 +130,8 @@
     private ToolStripMenuItem menuFormA02;
     private ToolStripMenuItem menuFormA03;
     private ToolStripMenuItem menuFormA04;
+    private ToolStripSeparator toolStripSeparator1;
+    private ToolStripMenuItem menuLogin;
+    private ToolStripMenuItem menuLogout;
   }
 }

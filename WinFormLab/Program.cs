@@ -1,9 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using Refit;
-using Microsoft.Extensions.Configuration;
+using WinFormLab.Models;
 
 namespace WinFormLab;
 
@@ -33,16 +34,28 @@ internal static class Program
       builder.ConfigureServices((ctx, services) =>
       {
         var config = ctx.Configuration;
-        
+
+        //## for Authentication & Authorization
+        services.AddAuthorizationCore();
+        services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(config["WebApi1Url"]!) });
+        services.AddTransient<AuthHeaderHandler>();
+
         //## 註冊 RefitClient API。 --- 手動一個一個註冊
+        services.AddRefitClient<WinFormLab.RefitClient.IIdentityApi>()
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!))
+          .AddHttpMessageHandler<AuthHeaderHandler>();
+
         services.AddRefitClient<WinFormLab.RefitClient.IWeatherForecastApi>()
-          .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!));
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!))
+          .AddHttpMessageHandler<AuthHeaderHandler>();
 
         services.AddRefitClient<WinFormLab.RefitClient.IFileHandleApi>()
-          .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!));
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!))
+          .AddHttpMessageHandler<AuthHeaderHandler>(); ;
 
         // 註冊應用表單
         services.AddScoped<MainForm>();
+        services.AddTransient<LoginDialog>();
         services.AddTransient<FormA01>();
         services.AddTransient<FormA02>();
         services.AddTransient<FormA03>();

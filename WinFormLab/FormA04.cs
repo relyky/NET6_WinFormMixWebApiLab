@@ -24,10 +24,6 @@ public partial class FormA04 : Form
   IConfiguration _cfg;
   IFileHandleApi _bizApi;
 
-  //## State
-  string errMsg = string.Empty;
-  bool f_loading = false;
-
   public FormA04(IFileHandleApi bizApi, IHostEnvironment env, IConfiguration cfg)
   {
     _bizApi = bizApi;
@@ -116,7 +112,6 @@ public partial class FormA04 : Form
     catch (Exception ex)
     {
       MessageBox.Show(ex.Message, "出現例外！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-      Debugger.Break();
     }
   }
 
@@ -138,7 +133,6 @@ public partial class FormA04 : Form
     catch (Exception ex)
     {
       MessageBox.Show(ex.Message, "出現例外！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-      Debugger.Break();
     }
   }
 }

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 
 namespace WinFormLab
@@ -68,6 +69,27 @@ namespace WinFormLab
       // login
       MessageBox.Show("進行登入程序...未實作");
       // call dialog...
+    }
+
+    private void menuLogin_Click(object sender, EventArgs e)
+    {
+      using var dlg = _provider.GetRequiredService<LoginDialog>(); ;
+      //using var dlg = new LoginDialog();
+
+      if (dlg.ShowDialog(this) == DialogResult.OK)
+      {
+        MessageBox.Show("登入成功 => " + dlg.AuthToken);
+      }
+      else
+      {
+        MessageBox.Show("登入失敗。");
+      }
+    }
+
+    private void menuLogout_Click(object sender, EventArgs e)
+    {
+      // 清除登入註記
+      AppDomain.CurrentDomain.SetData(@"AUTH_TOKEN", null);
     }
   }
 }
