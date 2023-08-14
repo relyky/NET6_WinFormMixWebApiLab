@@ -56,7 +56,9 @@ public partial class FormA04 : Form
           fileName: file.Name);
       }
 
-      var uploadResults = Task.Run(async () => await _bizApi.UploadFileAsync(content)).GetAwaiter().GetResult();
+      //var uploadResults = Task.Run(async () => await _bizApi.UploadFileAsync(content)).GetAwaiter().GetResult();
+      var uploadResults = RefitHelper.RunSync(() => _bizApi.UploadFileAsync(content));
+
       return uploadResults;
     }
     catch (ApiException ex)
@@ -75,8 +77,8 @@ public partial class FormA04 : Form
   {
     try
     {
-      //HttpContent content = _bizApi.DowloadFileAsync(id).Result;
-      HttpContent content = Task.Run(async () => await _bizApi.DowloadFileAsync(id)).GetAwaiter().GetResult();
+      //HttpContent content = Task.Run(async () => await _bizApi.DowloadFileAsync(id)).GetAwaiter().GetResult();
+      HttpContent content = RefitHelper.RunSync(() => _bizApi.DowloadFileAsync(id));
       byte[] fileBlob = content.ReadAsByteArrayAsync().Result;
 
       string filenameU = content.Headers.GetValues("Content-Disposition").First().Split("filename*=UTF-8''")[1];

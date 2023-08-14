@@ -52,13 +52,15 @@ namespace WinFormLab
           })
         };
 
-        string token = Task.Run(async () => await _bizApi.GenerateTokenAsync(request)).GetAwaiter().GetResult();        
+        string token = RefitHelper.RunSync(()=> _bizApi.GenerateTokenAsync(request));
+        //string token = Task.Run(async() => await _bizApi.GenerateTokenAsync(request)).GetAwaiter().GetResult();
+
         AppDomain.CurrentDomain.SetData(@"AUTH_TOKEN", token);
 
         this.AuthToken = token;
         this.DialogResult = DialogResult.OK;
       }
-      catch (Exception ex)       
+      catch (Exception ex)
       {
         MessageBox.Show(ex.Message, "出現例外！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         Debugger.Break();

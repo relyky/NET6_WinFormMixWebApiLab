@@ -45,8 +45,8 @@ namespace WinFormLab
       using var http = new HttpClient();
       var api = new Client(@"https://localhost:7232", http);
       var result = api.WeatherForecast();
-      var json = JsonConvert.SerializeObject(result);
 
+      var json = JsonConvert.SerializeObject(result);
       textBox1.AppendText($"{json}{Environment.NewLine}");
     }
 
@@ -54,9 +54,9 @@ namespace WinFormLab
     {
       try
       {
-        var result = _bizApi.WeatherForecastAsync().Result; ;
-        var json = JsonConvert.SerializeObject(result);
+        var result = RefitHelper.RunSync(()=> _bizApi.WeatherForecastAsync());
 
+        var json = JsonConvert.SerializeObject(result);
         textBox1.AppendText($"{json}{Environment.NewLine}");
       }
       catch (Exception ex)
