@@ -9,14 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
-
+using WinFormLab.Models;
 
 namespace WinFormLab
 {
   public partial class FormA05 : Form
   {
-    public FormA05()
+    readonly DeliveryQueue _delivery;
+
+    public FormA05(DeliveryQueue delivery)
     {
+      _delivery = delivery;
       InitializeComponent();
     }
 
@@ -28,7 +31,6 @@ namespace WinFormLab
     async Task InitBrowserAsync()
     {
       await webView.EnsureCoreWebView2Async();
-      webView.CoreWebView2.Navigate("https://www.youtube.com");
     }
 
     #endregion
@@ -36,6 +38,17 @@ namespace WinFormLab
     async void FormA05_Load(object sender, EventArgs e)
     {
       await InitBrowserAsync();
+
+      var bag = _delivery.Dequeue(nameof(FormA05), "NavigateUrl");
+
+      if(bag != null)
+      {
+        webView.CoreWebView2.Navigate((string)bag.Content);
+      }
+      else
+      {
+        webView.CoreWebView2.Navigate("https://www.google.com/");
+      }
     }
   }
 }

@@ -20,9 +20,9 @@ namespace WinFormLab;
 
 public partial class FormA04 : Form
 {
-  IHostEnvironment _env;
-  IConfiguration _cfg;
-  IFileHandleApi _bizApi;
+  readonly IHostEnvironment _env;
+  readonly IConfiguration _cfg;
+  readonly IFileHandleApi _bizApi;
 
   public FormA04(IFileHandleApi bizApi, IHostEnvironment env, IConfiguration cfg)
   {

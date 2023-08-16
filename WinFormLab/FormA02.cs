@@ -18,9 +18,9 @@ namespace WinFormLab
 {
   public partial class FormA02 : Form
   {
-    IWeatherForecastApi _bizApi;
-    IHostEnvironment _env;
-    IConfiguration _cfg;
+    readonly IWeatherForecastApi _bizApi;
+    readonly IHostEnvironment _env;
+    readonly IConfiguration _cfg;
 
     public FormA02(IWeatherForecastApi bizApi, IHostEnvironment env, IConfiguration cfg)
     {

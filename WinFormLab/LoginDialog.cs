@@ -19,8 +19,8 @@ namespace WinFormLab
 {
   public partial class LoginDialog : Form
   {
-    IConfiguration _cfg;
-    IIdentityApi _bizApi;
+    readonly IConfiguration _cfg;
+    readonly IIdentityApi _bizApi;
 
     //## Property
     public string AuthToken { get; private set; } = string.Empty;

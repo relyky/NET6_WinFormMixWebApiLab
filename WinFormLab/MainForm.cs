@@ -2,18 +2,21 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using WinFormLab.Models;
 
 namespace WinFormLab
 {
   public partial class MainForm : Form
   {
-    ILogger<MainForm> _logger;
-    IServiceProvider _provider;
+    readonly ILogger<MainForm> _logger;
+    readonly IServiceProvider _provider;
+    readonly DeliveryQueue _delivery;
 
-    public MainForm(IServiceProvider provider, ILogger<MainForm> logger)
+    public MainForm(IServiceProvider provider, ILogger<MainForm> logger, DeliveryQueue delivery)
     {
       _logger = logger;
       _provider = provider;
+      _delivery = delivery;
       InitializeComponent();
     }
 
@@ -66,6 +69,15 @@ namespace WinFormLab
 
     private void menuFormA05_Click(object sender, EventArgs e)
     {
+      // 在開啟畫面前先把參數送過去
+      _delivery.Enqueue(new DeliveryBag
+      {
+        Sender = nameof(MainForm),
+        Receiver = nameof(FormA05),
+        Subject = "NavigateUrl",
+        Content = "https://www.youtube.com"
+      });
+
       OpenForm(typeof(FormA05));
     }
 

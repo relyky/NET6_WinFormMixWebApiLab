@@ -39,6 +39,7 @@ internal static class Program
         services.AddAuthorizationCore();
         services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(config["WebApi1Url"]!) });
         services.AddTransient<AuthHeaderHandler>();
+        services.AddSingleton<DeliveryQueue>();
 
         //## 註冊 RefitClient API。 --- 手動一個一個註冊
         services.AddRefitClient<WinFormLab.RefitClient.IIdentityApi>()
