@@ -64,6 +64,11 @@ namespace WinFormLab
       OpenForm(typeof(FormA04));
     }
 
+    private void menuFormA05_Click(object sender, EventArgs e)
+    {
+      OpenForm(typeof(FormA05));
+    }
+
     private void MainForm_Load(object sender, EventArgs e)
     {
       // login

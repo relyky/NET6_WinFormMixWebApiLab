@@ -60,6 +60,7 @@ internal static class Program
         services.AddTransient<FormA02>();
         services.AddTransient<FormA03>();
         services.AddTransient<FormA04>();
+        services.AddTransient<FormA05>();
       });
 
       builder.UseSerilog();
