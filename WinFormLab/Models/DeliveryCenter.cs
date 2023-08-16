@@ -12,7 +12,11 @@ namespace WinFormLab.Models;
 /// </summary>
 public class DeliveryQueue
 {
+  //## State
   List<DeliveryBag> deliverySet = new();
+
+  //## Property
+  public int BagCount => deliverySet.Count;
 
   public void Enqueue(DeliveryBag bag)
   {

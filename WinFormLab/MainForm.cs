@@ -75,7 +75,7 @@ namespace WinFormLab
         Sender = nameof(MainForm),
         Receiver = nameof(FormA05),
         Subject = "NavigateUrl",
-        Content = "https://www.youtube.com"
+        Content = "http://www.asiavista.com.tw/asvtwko"
       });
 
       OpenForm(typeof(FormA05));
