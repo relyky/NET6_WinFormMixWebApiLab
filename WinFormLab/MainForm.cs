@@ -20,6 +20,7 @@ namespace WinFormLab
       InitializeComponent();
     }
 
+    #region Helper
     void OpenForm(Type formType)
     {
       try
@@ -45,6 +46,26 @@ namespace WinFormLab
         MessageBox.Show(ex.Message, "出現例外！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         Debugger.Break();
       }
+    }
+    #endregion
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+      // login
+
+      using var dlg = _provider.GetRequiredService<LoginDialog>(); ;
+      //using var dlg = new LoginDialog();
+
+      if (dlg.ShowDialog(this) == DialogResult.OK)
+      {
+        // 登入後顯示
+        this.Show(); 
+        this.Focus();
+        return;
+      }
+
+      // 預設離開系統
+      Application.Exit();
     }
 
     private void menuFormA01_Click(object sender, EventArgs e)
@@ -81,32 +102,13 @@ namespace WinFormLab
       OpenForm(typeof(FormA05));
     }
 
-    private void MainForm_Load(object sender, EventArgs e)
-    {
-      // login
-      MessageBox.Show("進行登入程序...未實作");
-      // call dialog...
-    }
-
-    private void menuLogin_Click(object sender, EventArgs e)
-    {
-      using var dlg = _provider.GetRequiredService<LoginDialog>(); ;
-      //using var dlg = new LoginDialog();
-
-      if (dlg.ShowDialog(this) == DialogResult.OK)
-      {
-        MessageBox.Show("登入成功 => " + dlg.AuthToken);
-      }
-      else
-      {
-        MessageBox.Show("登入失敗。");
-      }
-    }
-
     private void menuLogout_Click(object sender, EventArgs e)
     {
       // 清除登入註記
       AppDomain.CurrentDomain.SetData(@"AUTH_TOKEN", null);
+
+      // 離開系統
+      Application.Exit();
     }
   }
 }

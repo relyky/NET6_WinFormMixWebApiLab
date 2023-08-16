@@ -40,7 +40,14 @@ namespace WinFormLab
         Cursor = Cursors.WaitCursor;
         btnLogin.Enabled = false;
 
-        //# GO
+        //# Authenticate and Authorize
+        if (!(txtAccount.Text == "foo" && txtMima.Text == "bar"))
+        {
+          MessageBox.Show("身份認證失敗！請確認帳號、密碼是否正確。", "登入失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          return;
+        }
+
+        //# 
         bool isAdmin = false;
         var request = new TokenGenerationRequest
         {
@@ -48,11 +55,11 @@ namespace WinFormLab
           Email = "nobody@mail.server",
           CustomClaims = new(new KeyValuePair<string, string>[]
           {
-          new("admin", isAdmin ? "true" : "false")
+            new("admin", isAdmin ? "true" : "false")
           })
         };
 
-        string token = RefitHelper.RunSync(()=> _bizApi.GenerateTokenAsync(request));
+        string token = RefitHelper.RunSync(() => _bizApi.GenerateTokenAsync(request));
         //string token = Task.Run(async() => await _bizApi.GenerateTokenAsync(request)).GetAwaiter().GetResult();
 
         AppDomain.CurrentDomain.SetData(@"AUTH_TOKEN", token);
@@ -63,7 +70,6 @@ namespace WinFormLab
       catch (Exception ex)
       {
         MessageBox.Show(ex.Message, "出現例外！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        Debugger.Break();
       }
       finally
       {
@@ -72,6 +78,18 @@ namespace WinFormLab
         btnLogin.Enabled = true;
       }
 
+    }
+
+    private void btnExit_Click(object sender, EventArgs e)
+    {
+      Application.Exit();
+    }
+
+    private void btnClear_Click(object sender, EventArgs e)
+    {
+      txtAccount.Clear();
+      txtMima.Clear();
+      txtAccount.Focus();
     }
   }
 }

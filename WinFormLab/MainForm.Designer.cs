@@ -34,10 +34,9 @@
       menuFormA02 = new ToolStripMenuItem();
       menuFormA03 = new ToolStripMenuItem();
       menuFormA04 = new ToolStripMenuItem();
-      toolStripSeparator1 = new ToolStripSeparator();
-      menuLogin = new ToolStripMenuItem();
-      menuLogout = new ToolStripMenuItem();
       menuFormA05 = new ToolStripMenuItem();
+      toolStripSeparator1 = new ToolStripSeparator();
+      menuLogout = new ToolStripMenuItem();
       menuStrip1.SuspendLayout();
       SuspendLayout();
       // 
@@ -48,70 +47,63 @@
       menuStrip1.Location = new Point(0, 0);
       menuStrip1.Name = "menuStrip1";
       menuStrip1.Padding = new Padding(8, 3, 0, 3);
-      menuStrip1.Size = new Size(1021, 30);
+      menuStrip1.Size = new Size(1021, 29);
       menuStrip1.TabIndex = 2;
       menuStrip1.Text = "menuStrip1";
       // 
       // menuGroupA
       // 
-      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03, menuFormA04, menuFormA05, toolStripSeparator1, menuLogin, menuLogout });
+      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03, menuFormA04, menuFormA05, toolStripSeparator1, menuLogout });
       menuGroupA.Name = "menuGroupA";
-      menuGroupA.Size = new Size(98, 24);
+      menuGroupA.Size = new Size(98, 23);
       menuGroupA.Text = "開啟新視窗";
       // 
       // menuFormA01
       // 
       menuFormA01.Name = "menuFormA01";
-      menuFormA01.Size = new Size(224, 26);
+      menuFormA01.Size = new Size(157, 26);
       menuFormA01.Text = "FormA01";
       menuFormA01.Click += menuFormA01_Click;
       // 
       // menuFormA02
       // 
       menuFormA02.Name = "menuFormA02";
-      menuFormA02.Size = new Size(224, 26);
+      menuFormA02.Size = new Size(157, 26);
       menuFormA02.Text = "FormA02";
       menuFormA02.Click += menuFormA02_Click;
       // 
       // menuFormA03
       // 
       menuFormA03.Name = "menuFormA03";
-      menuFormA03.Size = new Size(224, 26);
+      menuFormA03.Size = new Size(157, 26);
       menuFormA03.Text = "FormA03";
       menuFormA03.Click += menuFormA03_Click;
       // 
       // menuFormA04
       // 
       menuFormA04.Name = "menuFormA04";
-      menuFormA04.Size = new Size(224, 26);
+      menuFormA04.Size = new Size(157, 26);
       menuFormA04.Text = "FormA04";
       menuFormA04.Click += menuFormA04_Click;
-      // 
-      // toolStripSeparator1
-      // 
-      toolStripSeparator1.Name = "toolStripSeparator1";
-      toolStripSeparator1.Size = new Size(221, 6);
-      // 
-      // menuLogin
-      // 
-      menuLogin.Name = "menuLogin";
-      menuLogin.Size = new Size(224, 26);
-      menuLogin.Text = "登入";
-      menuLogin.Click += menuLogin_Click;
-      // 
-      // menuLogout
-      // 
-      menuLogout.Name = "menuLogout";
-      menuLogout.Size = new Size(224, 26);
-      menuLogout.Text = "登出";
-      menuLogout.Click += menuLogout_Click;
       // 
       // menuFormA05
       // 
       menuFormA05.Name = "menuFormA05";
-      menuFormA05.Size = new Size(224, 26);
+      menuFormA05.Size = new Size(157, 26);
       menuFormA05.Text = "FormA05";
       menuFormA05.Click += menuFormA05_Click;
+      // 
+      // toolStripSeparator1
+      // 
+      toolStripSeparator1.Name = "toolStripSeparator1";
+      toolStripSeparator1.Size = new Size(154, 6);
+      // 
+      // menuLogout
+      // 
+      menuLogout.Name = "menuLogout";
+      menuLogout.Size = new Size(157, 26);
+      menuLogout.Text = "登出";
+      menuLogout.Click += menuLogout_Click;
       // 
       // MainForm
       // 
@@ -122,6 +114,7 @@
       IsMdiContainer = true;
       MainMenuStrip = menuStrip1;
       Name = "MainForm";
+      StartPosition = FormStartPosition.CenterScreen;
       Text = "MainForm";
       Load += MainForm_Load;
       menuStrip1.ResumeLayout(false);
@@ -139,7 +132,6 @@
     private ToolStripMenuItem menuFormA03;
     private ToolStripMenuItem menuFormA04;
     private ToolStripSeparator toolStripSeparator1;
-    private ToolStripMenuItem menuLogin;
     private ToolStripMenuItem menuLogout;
     private ToolStripMenuItem menuFormA05;
   }
