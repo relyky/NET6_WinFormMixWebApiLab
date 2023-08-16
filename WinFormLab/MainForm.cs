@@ -59,7 +59,7 @@ namespace WinFormLab
       if (dlg.ShowDialog(this) == DialogResult.OK)
       {
         // 登入後顯示
-        this.Show(); 
+        this.Show();
         this.Focus();
         return;
       }
@@ -109,6 +109,29 @@ namespace WinFormLab
 
       // 離開系統
       Application.Exit();
+    }
+
+    private void menuToggleFuncs_Click(object sender, EventArgs e)
+    {
+      tvMenu.Visible = !tvMenu.Visible;
+    }
+
+    private void tvMenu_AfterSelect(object sender, TreeViewEventArgs e)
+    {
+      var node = tvMenu.SelectedNode;
+
+      Type? formType = node.Name switch
+      {
+        "nodeFormA01" => typeof(FormA01),
+        "nodeFormA02" => typeof(FormA02),
+        "nodeFormA03" => typeof(FormA03),
+        "nodeFormA04" => typeof(FormA04),
+        "nodeFormA05" => typeof(FormA05),
+        _ => null
+      }; ;
+
+      if (formType != null)
+        OpenForm(formType);
     }
   }
 }
