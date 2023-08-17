@@ -117,6 +117,7 @@ namespace WinFormLab
 
         // 依授權生成選單
         MakeTreeMenu2(/* AuthUser */);
+        tssStatus.Text = "這裡放置一些系統狀態訊息";
 
         // 登入後顯示
         this.Show();
@@ -171,11 +172,17 @@ namespace WinFormLab
       Application.Exit();
     }
 
+    /// <summary>
+    /// 功能選單切換
+    /// </summary>
     private void menuToggleFuncs_Click(object sender, EventArgs e)
     {
       tvMenu.Visible = !tvMenu.Visible;
     }
 
+    /// <summary>
+    /// 點選功能選單開啟功能畫面
+    /// </summary>
     private void tvMenu_AfterSelect(object sender, TreeViewEventArgs e)
     {
       string? formTypeName = tvMenu.SelectedNode.Tag as string;

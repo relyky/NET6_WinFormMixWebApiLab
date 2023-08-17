@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormA03));
       dataGridView1 = new DataGridView();
       ColumnPersonId = new DataGridViewTextBoxColumn();
       ColumnName = new DataGridViewTextBoxColumn();
@@ -41,7 +42,11 @@
       txtSurname = new TextBox();
       txtName = new TextBox();
       txtProfession = new TextBox();
+      toolStrip1 = new ToolStrip();
+      toolStripButton1 = new ToolStripButton();
+      toolStripButton2 = new ToolStripButton();
       ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+      toolStrip1.SuspendLayout();
       SuspendLayout();
       // 
       // dataGridView1
@@ -49,7 +54,7 @@
       dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
       dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnPersonId, ColumnName, ColumnSurname, ColumnProfession });
-      dataGridView1.Location = new Point(12, 177);
+      dataGridView1.Location = new Point(12, 258);
       dataGridView1.MultiSelect = false;
       dataGridView1.Name = "dataGridView1";
       dataGridView1.ReadOnly = true;
@@ -95,7 +100,7 @@
       // label1
       // 
       label1.AutoSize = true;
-      label1.Location = new Point(15, 16);
+      label1.Location = new Point(15, 80);
       label1.Name = "label1";
       label1.Size = new Size(54, 19);
       label1.TabIndex = 1;
@@ -104,7 +109,7 @@
       // label2
       // 
       label2.AutoSize = true;
-      label2.Location = new Point(331, 16);
+      label2.Location = new Point(331, 80);
       label2.Name = "label2";
       label2.Size = new Size(39, 19);
       label2.TabIndex = 2;
@@ -113,7 +118,7 @@
       // label3
       // 
       label3.AutoSize = true;
-      label3.Location = new Point(574, 16);
+      label3.Location = new Point(574, 80);
       label3.Name = "label3";
       label3.Size = new Size(39, 19);
       label3.TabIndex = 3;
@@ -122,7 +127,7 @@
       // label4
       // 
       label4.AutoSize = true;
-      label4.Location = new Point(12, 86);
+      label4.Location = new Point(15, 178);
       label4.Name = "label4";
       label4.Size = new Size(39, 19);
       label4.TabIndex = 4;
@@ -130,37 +135,66 @@
       // 
       // txtPersonId
       // 
-      txtPersonId.Location = new Point(12, 46);
+      txtPersonId.Location = new Point(12, 110);
       txtPersonId.Name = "txtPersonId";
       txtPersonId.Size = new Size(125, 27);
       txtPersonId.TabIndex = 5;
       // 
       // txtSurname
       // 
-      txtSurname.Location = new Point(574, 38);
+      txtSurname.Location = new Point(574, 110);
       txtSurname.Name = "txtSurname";
       txtSurname.Size = new Size(125, 27);
       txtSurname.TabIndex = 6;
       // 
       // txtName
       // 
-      txtName.Location = new Point(331, 46);
+      txtName.Location = new Point(331, 110);
       txtName.Name = "txtName";
       txtName.Size = new Size(125, 27);
       txtName.TabIndex = 7;
       // 
       // txtProfession
       // 
-      txtProfession.Location = new Point(12, 120);
+      txtProfession.Location = new Point(15, 210);
       txtProfession.Name = "txtProfession";
       txtProfession.Size = new Size(687, 27);
       txtProfession.TabIndex = 8;
+      // 
+      // toolStrip1
+      // 
+      toolStrip1.ImageScalingSize = new Size(40, 40);
+      toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2 });
+      toolStrip1.Location = new Point(0, 0);
+      toolStrip1.Name = "toolStrip1";
+      toolStrip1.Size = new Size(934, 47);
+      toolStrip1.Stretch = true;
+      toolStrip1.TabIndex = 9;
+      toolStrip1.Text = "toolStrip1";
+      // 
+      // toolStripButton1
+      // 
+      toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+      toolStripButton1.ImageTransparentColor = Color.Magenta;
+      toolStripButton1.Name = "toolStripButton1";
+      toolStripButton1.Size = new Size(83, 44);
+      toolStripButton1.Text = "新增";
+      toolStripButton1.TextDirection = ToolStripTextDirection.Horizontal;
+      // 
+      // toolStripButton2
+      // 
+      toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+      toolStripButton2.ImageTransparentColor = Color.Magenta;
+      toolStripButton2.Name = "toolStripButton2";
+      toolStripButton2.Size = new Size(83, 44);
+      toolStripButton2.Text = "刪除";
       // 
       // FormA03
       // 
       AutoScaleDimensions = new SizeF(9F, 19F);
       AutoScaleMode = AutoScaleMode.Font;
-      ClientSize = new Size(934, 532);
+      ClientSize = new Size(934, 613);
+      Controls.Add(toolStrip1);
       Controls.Add(txtProfession);
       Controls.Add(txtName);
       Controls.Add(txtSurname);
@@ -174,6 +208,8 @@
       Text = "FormA03: DataGridView 複習";
       Load += FormA03_Load;
       ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+      toolStrip1.ResumeLayout(false);
+      toolStrip1.PerformLayout();
       ResumeLayout(false);
       PerformLayout();
     }
@@ -193,5 +229,9 @@
     private TextBox txtSurname;
     private TextBox txtName;
     private TextBox txtProfession;
+    private ToolStrip toolStrip1;
+    private ToolStripButton toolStripButton1;
+    private ToolStripButton toolStripButton2;
+    private ToolStripLabel toolStripLabel1;
   }
 }
