@@ -28,28 +28,34 @@
     /// </summary>
     private void InitializeComponent()
     {
-      TreeNode treeNode21 = new TreeNode("FormA01");
-      TreeNode treeNode22 = new TreeNode("FormA02");
-      TreeNode treeNode23 = new TreeNode("FormA03");
-      TreeNode treeNode24 = new TreeNode("FormA04");
-      TreeNode treeNode25 = new TreeNode("FormA05");
-      TreeNode treeNode26 = new TreeNode("開啟新視窗", new TreeNode[] { treeNode21, treeNode22, treeNode23, treeNode24, treeNode25 });
-      TreeNode treeNode27 = new TreeNode("節點7");
-      TreeNode treeNode28 = new TreeNode("節點12");
-      TreeNode treeNode29 = new TreeNode("節點13");
-      TreeNode treeNode30 = new TreeNode("節點1", new TreeNode[] { treeNode27, treeNode28, treeNode29 });
-      TreeNode treeNode31 = new TreeNode("節點6");
-      TreeNode treeNode32 = new TreeNode("節點14");
-      TreeNode treeNode33 = new TreeNode("節點2", new TreeNode[] { treeNode31, treeNode32 });
-      TreeNode treeNode34 = new TreeNode("節點4");
-      TreeNode treeNode35 = new TreeNode("節點15");
-      TreeNode treeNode36 = new TreeNode("節點3", new TreeNode[] { treeNode34, treeNode35 });
-      TreeNode treeNode37 = new TreeNode("節點16");
-      TreeNode treeNode38 = new TreeNode("節點17");
-      TreeNode treeNode39 = new TreeNode("節點18");
-      TreeNode treeNode40 = new TreeNode("節點8", new TreeNode[] { treeNode37, treeNode38, treeNode39 });
+      TreeNode treeNode1 = new TreeNode("FormA01");
+      TreeNode treeNode2 = new TreeNode("FormA02");
+      TreeNode treeNode3 = new TreeNode("FormA03");
+      TreeNode treeNode4 = new TreeNode("FormA04");
+      TreeNode treeNode5 = new TreeNode("FormA05");
+      TreeNode treeNode6 = new TreeNode("FormA06");
+      TreeNode treeNode7 = new TreeNode("開啟新視窗", new TreeNode[] { treeNode1, treeNode2, treeNode3, treeNode4, treeNode5, treeNode6 });
+      TreeNode treeNode8 = new TreeNode("節點7");
+      TreeNode treeNode9 = new TreeNode("節點12");
+      TreeNode treeNode10 = new TreeNode("節點13");
+      TreeNode treeNode11 = new TreeNode("節點1", new TreeNode[] { treeNode8, treeNode9, treeNode10 });
+      TreeNode treeNode12 = new TreeNode("節點6");
+      TreeNode treeNode13 = new TreeNode("節點14");
+      TreeNode treeNode14 = new TreeNode("節點2", new TreeNode[] { treeNode12, treeNode13 });
+      TreeNode treeNode15 = new TreeNode("節點4");
+      TreeNode treeNode16 = new TreeNode("節點15");
+      TreeNode treeNode17 = new TreeNode("節點3", new TreeNode[] { treeNode15, treeNode16 });
+      TreeNode treeNode18 = new TreeNode("節點16");
+      TreeNode treeNode19 = new TreeNode("節點17");
+      TreeNode treeNode20 = new TreeNode("節點18");
+      TreeNode treeNode21 = new TreeNode("節點8", new TreeNode[] { treeNode18, treeNode19, treeNode20 });
       menuStrip1 = new MenuStrip();
       menuToggleFuncs = new ToolStripMenuItem();
+      系統ToolStripMenuItem = new ToolStripMenuItem();
+      變更密碼ToolStripMenuItem = new ToolStripMenuItem();
+      使用原來身份ToolStripMenuItem = new ToolStripMenuItem();
+      使用代理身份ToolStripMenuItem = new ToolStripMenuItem();
+      離開ToolStripMenuItem = new ToolStripMenuItem();
       menuGroupA = new ToolStripMenuItem();
       menuFormA01 = new ToolStripMenuItem();
       menuFormA02 = new ToolStripMenuItem();
@@ -60,11 +66,6 @@
       menuLogout = new ToolStripMenuItem();
       tvMenu = new TreeView();
       splitter1 = new Splitter();
-      系統ToolStripMenuItem = new ToolStripMenuItem();
-      變更密碼ToolStripMenuItem = new ToolStripMenuItem();
-      使用原來身份ToolStripMenuItem = new ToolStripMenuItem();
-      使用代理身份ToolStripMenuItem = new ToolStripMenuItem();
-      離開ToolStripMenuItem = new ToolStripMenuItem();
       menuStrip1.SuspendLayout();
       SuspendLayout();
       // 
@@ -76,7 +77,7 @@
       menuStrip1.Location = new Point(0, 0);
       menuStrip1.Name = "menuStrip1";
       menuStrip1.Padding = new Padding(9, 3, 0, 3);
-      menuStrip1.Size = new Size(1352, 32);
+      menuStrip1.Size = new Size(1267, 32);
       menuStrip1.TabIndex = 2;
       menuStrip1.Text = "menuStrip1";
       // 
@@ -87,6 +88,37 @@
       menuToggleFuncs.Size = new Size(78, 26);
       menuToggleFuncs.Text = "開始";
       menuToggleFuncs.Click += menuToggleFuncs_Click;
+      // 
+      // 系統ToolStripMenuItem
+      // 
+      系統ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 變更密碼ToolStripMenuItem, 使用原來身份ToolStripMenuItem, 使用代理身份ToolStripMenuItem, 離開ToolStripMenuItem });
+      系統ToolStripMenuItem.Name = "系統ToolStripMenuItem";
+      系統ToolStripMenuItem.Size = new Size(58, 26);
+      系統ToolStripMenuItem.Text = "系統";
+      // 
+      // 變更密碼ToolStripMenuItem
+      // 
+      變更密碼ToolStripMenuItem.Name = "變更密碼ToolStripMenuItem";
+      變更密碼ToolStripMenuItem.Size = new Size(196, 26);
+      變更密碼ToolStripMenuItem.Text = "變更密碼";
+      // 
+      // 使用原來身份ToolStripMenuItem
+      // 
+      使用原來身份ToolStripMenuItem.Name = "使用原來身份ToolStripMenuItem";
+      使用原來身份ToolStripMenuItem.Size = new Size(196, 26);
+      使用原來身份ToolStripMenuItem.Text = "使用原來身份";
+      // 
+      // 使用代理身份ToolStripMenuItem
+      // 
+      使用代理身份ToolStripMenuItem.Name = "使用代理身份ToolStripMenuItem";
+      使用代理身份ToolStripMenuItem.Size = new Size(196, 26);
+      使用代理身份ToolStripMenuItem.Text = "使用代理身份";
+      // 
+      // 離開ToolStripMenuItem
+      // 
+      離開ToolStripMenuItem.Name = "離開ToolStripMenuItem";
+      離開ToolStripMenuItem.Size = new Size(196, 26);
+      離開ToolStripMenuItem.Text = "離開";
       // 
       // menuGroupA
       // 
@@ -147,95 +179,68 @@
       tvMenu.Dock = DockStyle.Left;
       tvMenu.Location = new Point(0, 32);
       tvMenu.Name = "tvMenu";
-      treeNode21.Name = "nodeFormA01";
-      treeNode21.Text = "FormA01";
-      treeNode22.Name = "nodeFormA02";
-      treeNode22.Text = "FormA02";
-      treeNode23.Name = "nodeFormA03";
-      treeNode23.Text = "FormA03";
-      treeNode24.Name = "nodeFormA04";
-      treeNode24.Text = "FormA04";
-      treeNode25.Name = "nodeFormA05";
-      treeNode25.Text = "FormA05";
-      treeNode26.Name = "funcGrp0";
-      treeNode26.Text = "開啟新視窗";
-      treeNode27.Name = "節點7";
-      treeNode27.Text = "節點7";
-      treeNode28.Name = "節點12";
-      treeNode28.Text = "節點12";
-      treeNode29.Name = "節點13";
-      treeNode29.Text = "節點13";
-      treeNode30.Name = "節點1";
-      treeNode30.Text = "節點1";
-      treeNode31.Name = "節點6";
-      treeNode31.Text = "節點6";
-      treeNode32.Name = "節點14";
-      treeNode32.Text = "節點14";
-      treeNode33.Name = "節點2";
-      treeNode33.Text = "節點2";
-      treeNode34.Name = "節點4";
-      treeNode34.Text = "節點4";
-      treeNode35.Name = "節點15";
-      treeNode35.Text = "節點15";
-      treeNode36.Name = "節點3";
-      treeNode36.Text = "節點3";
-      treeNode37.Name = "節點16";
-      treeNode37.Text = "節點16";
-      treeNode38.Name = "節點17";
-      treeNode38.Text = "節點17";
-      treeNode39.Name = "節點18";
-      treeNode39.Text = "節點18";
-      treeNode40.Name = "節點8";
-      treeNode40.Text = "節點8";
-      tvMenu.Nodes.AddRange(new TreeNode[] { treeNode26, treeNode30, treeNode33, treeNode36, treeNode40 });
-      tvMenu.Size = new Size(293, 813);
+      treeNode1.Name = "nodeFormA01";
+      treeNode1.Text = "FormA01";
+      treeNode2.Name = "nodeFormA02";
+      treeNode2.Text = "FormA02";
+      treeNode3.Name = "nodeFormA03";
+      treeNode3.Text = "FormA03";
+      treeNode4.Name = "nodeFormA04";
+      treeNode4.Text = "FormA04";
+      treeNode5.Name = "nodeFormA05";
+      treeNode5.Text = "FormA05";
+      treeNode6.Name = "nodeFormA06";
+      treeNode6.Text = "FormA06";
+      treeNode7.Name = "funcGrp0";
+      treeNode7.Text = "開啟新視窗";
+      treeNode8.Name = "節點7";
+      treeNode8.Text = "節點7";
+      treeNode9.Name = "節點12";
+      treeNode9.Text = "節點12";
+      treeNode10.Name = "節點13";
+      treeNode10.Text = "節點13";
+      treeNode11.Name = "節點1";
+      treeNode11.Text = "節點1";
+      treeNode12.Name = "節點6";
+      treeNode12.Text = "節點6";
+      treeNode13.Name = "節點14";
+      treeNode13.Text = "節點14";
+      treeNode14.Name = "節點2";
+      treeNode14.Text = "節點2";
+      treeNode15.Name = "節點4";
+      treeNode15.Text = "節點4";
+      treeNode16.Name = "節點15";
+      treeNode16.Text = "節點15";
+      treeNode17.Name = "節點3";
+      treeNode17.Text = "節點3";
+      treeNode18.Name = "節點16";
+      treeNode18.Text = "節點16";
+      treeNode19.Name = "節點17";
+      treeNode19.Text = "節點17";
+      treeNode20.Name = "節點18";
+      treeNode20.Text = "節點18";
+      treeNode21.Name = "節點8";
+      treeNode21.Text = "節點8";
+      tvMenu.Nodes.AddRange(new TreeNode[] { treeNode7, treeNode11, treeNode14, treeNode17, treeNode21 });
+      tvMenu.Size = new Size(280, 643);
       tvMenu.TabIndex = 5;
       tvMenu.AfterSelect += tvMenu_AfterSelect;
+      tvMenu.Enter += tvMenu_Enter;
+      tvMenu.Leave += tvMenu_Leave;
       // 
       // splitter1
       // 
-      splitter1.Location = new Point(293, 32);
+      splitter1.Location = new Point(280, 32);
       splitter1.Name = "splitter1";
-      splitter1.Size = new Size(4, 813);
+      splitter1.Size = new Size(4, 643);
       splitter1.TabIndex = 9;
       splitter1.TabStop = false;
-      // 
-      // 系統ToolStripMenuItem
-      // 
-      系統ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 變更密碼ToolStripMenuItem, 使用原來身份ToolStripMenuItem, 使用代理身份ToolStripMenuItem, 離開ToolStripMenuItem });
-      系統ToolStripMenuItem.Name = "系統ToolStripMenuItem";
-      系統ToolStripMenuItem.Size = new Size(58, 26);
-      系統ToolStripMenuItem.Text = "系統";
-      // 
-      // 變更密碼ToolStripMenuItem
-      // 
-      變更密碼ToolStripMenuItem.Name = "變更密碼ToolStripMenuItem";
-      變更密碼ToolStripMenuItem.Size = new Size(224, 26);
-      變更密碼ToolStripMenuItem.Text = "變更密碼";
-      // 
-      // 使用原來身份ToolStripMenuItem
-      // 
-      使用原來身份ToolStripMenuItem.Name = "使用原來身份ToolStripMenuItem";
-      使用原來身份ToolStripMenuItem.Size = new Size(224, 26);
-      使用原來身份ToolStripMenuItem.Text = "使用原來身份";
-      // 
-      // 使用代理身份ToolStripMenuItem
-      // 
-      使用代理身份ToolStripMenuItem.Name = "使用代理身份ToolStripMenuItem";
-      使用代理身份ToolStripMenuItem.Size = new Size(224, 26);
-      使用代理身份ToolStripMenuItem.Text = "使用代理身份";
-      // 
-      // 離開ToolStripMenuItem
-      // 
-      離開ToolStripMenuItem.Name = "離開ToolStripMenuItem";
-      離開ToolStripMenuItem.Size = new Size(224, 26);
-      離開ToolStripMenuItem.Text = "離開";
       // 
       // MainForm
       // 
       AutoScaleDimensions = new SizeF(10F, 22F);
       AutoScaleMode = AutoScaleMode.Font;
-      ClientSize = new Size(1352, 845);
+      ClientSize = new Size(1267, 675);
       Controls.Add(splitter1);
       Controls.Add(tvMenu);
       Controls.Add(menuStrip1);

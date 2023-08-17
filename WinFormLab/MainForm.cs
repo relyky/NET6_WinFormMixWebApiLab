@@ -127,11 +127,30 @@ namespace WinFormLab
         "nodeFormA03" => typeof(FormA03),
         "nodeFormA04" => typeof(FormA04),
         "nodeFormA05" => typeof(FormA05),
+        "nodeFormA06" => typeof(FormA06),
         _ => null
       }; ;
 
       if (formType != null)
         OpenForm(formType);
+    }
+
+    private void tvMenu_Enter(object sender, EventArgs e)
+    {
+      if (tvMenu.SelectedNode != null)
+      {
+        tvMenu.SelectedNode.BackColor = Color.Empty;
+        tvMenu.SelectedNode.ForeColor = Color.Empty;
+      }
+    }
+
+    private void tvMenu_Leave(object sender, EventArgs e)
+    {
+      if (tvMenu.SelectedNode != null)
+      {
+        tvMenu.SelectedNode.BackColor = SystemColors.Highlight;
+        tvMenu.SelectedNode.ForeColor = Color.White;
+      }
     }
   }
 }
