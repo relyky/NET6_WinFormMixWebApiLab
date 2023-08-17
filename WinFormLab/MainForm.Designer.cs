@@ -66,6 +66,7 @@
       menuLogout = new ToolStripMenuItem();
       tvMenu = new TreeView();
       splitter1 = new Splitter();
+      formA01ToolStripMenuItem = new ToolStripMenuItem();
       menuStrip1.SuspendLayout();
       SuspendLayout();
       // 
@@ -122,7 +123,7 @@
       // 
       // menuGroupA
       // 
-      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03, menuFormA04, menuFormA05, toolStripSeparator1, menuLogout });
+      menuGroupA.DropDownItems.AddRange(new ToolStripItem[] { menuFormA01, menuFormA02, menuFormA03, menuFormA04, menuFormA05, toolStripSeparator1, menuLogout, formA01ToolStripMenuItem });
       menuGroupA.Name = "menuGroupA";
       menuGroupA.Size = new Size(109, 26);
       menuGroupA.Text = "開啟新視窗";
@@ -130,47 +131,47 @@
       // menuFormA01
       // 
       menuFormA01.Name = "menuFormA01";
-      menuFormA01.Size = new Size(168, 26);
+      menuFormA01.Size = new Size(224, 26);
       menuFormA01.Text = "FormA01";
       menuFormA01.Click += menuFormA01_Click;
       // 
       // menuFormA02
       // 
       menuFormA02.Name = "menuFormA02";
-      menuFormA02.Size = new Size(168, 26);
+      menuFormA02.Size = new Size(224, 26);
       menuFormA02.Text = "FormA02";
       menuFormA02.Click += menuFormA02_Click;
       // 
       // menuFormA03
       // 
       menuFormA03.Name = "menuFormA03";
-      menuFormA03.Size = new Size(168, 26);
+      menuFormA03.Size = new Size(224, 26);
       menuFormA03.Text = "FormA03";
       menuFormA03.Click += menuFormA03_Click;
       // 
       // menuFormA04
       // 
       menuFormA04.Name = "menuFormA04";
-      menuFormA04.Size = new Size(168, 26);
+      menuFormA04.Size = new Size(224, 26);
       menuFormA04.Text = "FormA04";
       menuFormA04.Click += menuFormA04_Click;
       // 
       // menuFormA05
       // 
       menuFormA05.Name = "menuFormA05";
-      menuFormA05.Size = new Size(168, 26);
+      menuFormA05.Size = new Size(224, 26);
       menuFormA05.Text = "FormA05";
       menuFormA05.Click += menuFormA05_Click;
       // 
       // toolStripSeparator1
       // 
       toolStripSeparator1.Name = "toolStripSeparator1";
-      toolStripSeparator1.Size = new Size(165, 6);
+      toolStripSeparator1.Size = new Size(221, 6);
       // 
       // menuLogout
       // 
       menuLogout.Name = "menuLogout";
-      menuLogout.Size = new Size(168, 26);
+      menuLogout.Size = new Size(224, 26);
       menuLogout.Text = "登出";
       menuLogout.Click += menuLogout_Click;
       // 
@@ -180,16 +181,22 @@
       tvMenu.Location = new Point(0, 32);
       tvMenu.Name = "tvMenu";
       treeNode1.Name = "nodeFormA01";
+      treeNode1.Tag = "WinFormLab.FormA01";
       treeNode1.Text = "FormA01";
       treeNode2.Name = "nodeFormA02";
+      treeNode2.Tag = "WinFormLab.FormA02";
       treeNode2.Text = "FormA02";
       treeNode3.Name = "nodeFormA03";
+      treeNode3.Tag = "WinFormLab.FormA03";
       treeNode3.Text = "FormA03";
       treeNode4.Name = "nodeFormA04";
+      treeNode4.Tag = "WinFormLab.FormA04";
       treeNode4.Text = "FormA04";
       treeNode5.Name = "nodeFormA05";
+      treeNode5.Tag = "WinFormLab.FormA05";
       treeNode5.Text = "FormA05";
       treeNode6.Name = "nodeFormA06";
+      treeNode6.Tag = "WinFormLab.FormA06";
       treeNode6.Text = "FormA06";
       treeNode7.Name = "funcGrp0";
       treeNode7.Text = "開啟新視窗";
@@ -236,6 +243,12 @@
       splitter1.TabIndex = 9;
       splitter1.TabStop = false;
       // 
+      // formA01ToolStripMenuItem
+      // 
+      formA01ToolStripMenuItem.Name = "formA01ToolStripMenuItem";
+      formA01ToolStripMenuItem.Size = new Size(224, 26);
+      formA01ToolStripMenuItem.Text = "FormA01";
+      // 
       // MainForm
       // 
       AutoScaleDimensions = new SizeF(10F, 22F);
@@ -260,14 +273,6 @@
     #endregion
 
     private MenuStrip menuStrip1;
-    private ToolStripMenuItem menuGroupA;
-    private ToolStripMenuItem menuFormA01;
-    private ToolStripMenuItem menuFormA02;
-    private ToolStripMenuItem menuFormA03;
-    private ToolStripMenuItem menuFormA04;
-    private ToolStripSeparator toolStripSeparator1;
-    private ToolStripMenuItem menuLogout;
-    private ToolStripMenuItem menuFormA05;
     private TreeView tvMenu;
     private ToolStripMenuItem menuToggleFuncs;
     private Splitter splitter1;
@@ -276,5 +281,14 @@
     private ToolStripMenuItem 使用原來身份ToolStripMenuItem;
     private ToolStripMenuItem 使用代理身份ToolStripMenuItem;
     private ToolStripMenuItem 離開ToolStripMenuItem;
+    private ToolStripMenuItem menuGroupA;
+    private ToolStripMenuItem menuFormA01;
+    private ToolStripMenuItem menuFormA02;
+    private ToolStripMenuItem menuFormA03;
+    private ToolStripMenuItem menuFormA04;
+    private ToolStripMenuItem menuFormA05;
+    private ToolStripSeparator toolStripSeparator1;
+    private ToolStripMenuItem menuLogout;
+    private ToolStripMenuItem formA01ToolStripMenuItem;
   }
 }

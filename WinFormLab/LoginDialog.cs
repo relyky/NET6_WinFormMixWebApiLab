@@ -32,6 +32,11 @@ namespace WinFormLab
       InitializeComponent();
     }
 
+    private void LoginDialog_Load(object sender, EventArgs e)
+    {
+      txtAccount.Focus();
+    }
+
     private void btnLogin_Click(object sender, EventArgs e)
     {
       try
@@ -91,5 +96,6 @@ namespace WinFormLab
       txtMima.Clear();
       txtAccount.Focus();
     }
+
   }
 }

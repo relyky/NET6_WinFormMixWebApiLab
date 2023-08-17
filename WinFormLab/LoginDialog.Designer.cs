@@ -171,6 +171,7 @@
       StartPosition = FormStartPosition.CenterScreen;
       Text = "登入ＸＸＸ系統";
       TopMost = true;
+      Load += LoginDialog_Load;
       ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
       ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
       ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

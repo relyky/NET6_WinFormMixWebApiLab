@@ -47,6 +47,61 @@ namespace WinFormLab
         Debugger.Break();
       }
     }
+
+    void MakeTreeMenu()
+    {
+      var menuInfo = new[] {
+        new { Caption = "FormA01", TypeName = "WinFormLab.FormA01" },
+        new { Caption = "FormA02", TypeName = "WinFormLab.FormA02" },
+        new { Caption = "FormA03", TypeName = "WinFormLab.FormA03" },
+        new { Caption = "FormA04", TypeName = "WinFormLab.FormA04" },
+        new { Caption = "FormA05", TypeName = "WinFormLab.FormA05" },
+        new { Caption = "FormA06", TypeName = "WinFormLab.FormA06" },
+      };
+
+      foreach (var item in menuInfo)
+      {
+        var menuNode = new TreeNode(item.Caption);
+        menuNode.Tag = item.TypeName;
+        tvMenu.Nodes.Add(menuNode);
+      }
+    }
+
+    void MakeTreeMenu2()
+    {
+      var menuGrp = new[] {
+        new {
+          Caption = "群組功能A",
+          MenuList = new[] {
+            new { Caption = "FormA01", TypeName = "WinFormLab.FormA01" },
+            new { Caption = "FormA02", TypeName = "WinFormLab.FormA02" },
+            new { Caption = "FormA03", TypeName = "WinFormLab.FormA03" },
+          }
+        },
+        new {
+          Caption = "群組功能B",
+          MenuList = new[] {
+            new { Caption = "FormA04", TypeName = "WinFormLab.FormA04" },
+            new { Caption = "FormA05", TypeName = "WinFormLab.FormA05" },
+            new { Caption = "FormA06", TypeName = "WinFormLab.FormA06" },
+          }
+        },
+      };
+
+      foreach (var grp in menuGrp)
+      {
+        var grpNode = new TreeNode(grp.Caption);
+        foreach (var item in grp.MenuList)
+        {
+          var menuNode = new TreeNode(item.Caption);
+          menuNode.Tag = item.TypeName;
+          grpNode.Nodes.Add(menuNode);
+        }
+
+        tvMenu.Nodes.Add(grpNode);
+      }
+    }
+
     #endregion
 
     private void MainForm_Load(object sender, EventArgs e)
@@ -58,6 +113,11 @@ namespace WinFormLab
 
       if (dlg.ShowDialog(this) == DialogResult.OK)
       {
+        //dlg.AuthUser 
+
+        // 依授權生成選單
+        MakeTreeMenu2(/* AuthUser */);
+
         // 登入後顯示
         this.Show();
         this.Focus();
@@ -118,23 +178,19 @@ namespace WinFormLab
 
     private void tvMenu_AfterSelect(object sender, TreeViewEventArgs e)
     {
-      var node = tvMenu.SelectedNode;
+      string? formTypeName = tvMenu.SelectedNode.Tag as string;
+      if (formTypeName == null) return;
 
-      Type? formType = node.Name switch
-      {
-        "nodeFormA01" => typeof(FormA01),
-        "nodeFormA02" => typeof(FormA02),
-        "nodeFormA03" => typeof(FormA03),
-        "nodeFormA04" => typeof(FormA04),
-        "nodeFormA05" => typeof(FormA05),
-        "nodeFormA06" => typeof(FormA06),
-        _ => null
-      }; ;
+      Type? formType = Type.GetType(formTypeName);
 
       if (formType != null)
         OpenForm(formType);
     }
 
+    /// <summary>
+    /// highlight 選取項目
+    /// 參考：https://stackoverflow.com/questions/21198668/treenode-selected-backcolor-while-treeview-not-focused
+    /// </summary>
     private void tvMenu_Enter(object sender, EventArgs e)
     {
       if (tvMenu.SelectedNode != null)
@@ -144,6 +200,10 @@ namespace WinFormLab
       }
     }
 
+    /// <summary>
+    /// highlight 選取項目
+    /// 參考：https://stackoverflow.com/questions/21198668/treenode-selected-backcolor-while-treeview-not-focused
+    /// </summary>
     private void tvMenu_Leave(object sender, EventArgs e)
     {
       if (tvMenu.SelectedNode != null)
