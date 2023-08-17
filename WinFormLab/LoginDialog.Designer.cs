@@ -188,9 +188,6 @@
     private PictureBox pictureBox3;
     private TextBox txtAccount;
     private TextBox txtMima;
-    private Label label2;
-    private Label label3;
-    private Label lblExit;
     private Button btnExit;
     private Button btnClear;
   }

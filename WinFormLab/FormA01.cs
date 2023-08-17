@@ -16,5 +16,10 @@ namespace WinFormLab
     {
       InitializeComponent();
     }
+
+    private void FormA01_Load(object sender, EventArgs e)
+    {
+      txtAppPath.Text = Application.StartupPath;
+    }
   }
 }

@@ -35,17 +35,18 @@
       第二個指令ToolStripMenuItem = new ToolStripMenuItem();
       功能作業群ＢToolStripMenuItem = new ToolStripMenuItem();
       label2 = new Label();
+      txtAppPath = new TextBox();
       menuStrip1.SuspendLayout();
       SuspendLayout();
       // 
       // label1
       // 
       label1.AutoSize = true;
-      label1.Location = new Point(90, 75);
+      label1.Location = new Point(130, 250);
       label1.Name = "label1";
-      label1.Size = new Size(123, 19);
+      label1.Size = new Size(172, 19);
       label1.TabIndex = 0;
-      label1.Text = "這裡是 FormA01";
+      label1.Text = "Application.StartupPath";
       // 
       // menuStrip1
       // 
@@ -87,23 +88,32 @@
       label2.AutoSize = true;
       label2.Font = new Font("微軟正黑體", 48F, FontStyle.Regular, GraphicsUnit.Point);
       label2.ForeColor = SystemColors.Highlight;
-      label2.Location = new Point(72, 141);
+      label2.Location = new Point(98, 127);
       label2.Name = "label2";
       label2.Size = new Size(623, 101);
       label2.TabIndex = 2;
       label2.Text = "哈囉 你好世界。";
+      // 
+      // txtAppPath
+      // 
+      txtAppPath.Location = new Point(130, 282);
+      txtAppPath.Name = "txtAppPath";
+      txtAppPath.Size = new Size(664, 27);
+      txtAppPath.TabIndex = 3;
       // 
       // FormA01
       // 
       AutoScaleDimensions = new SizeF(9F, 19F);
       AutoScaleMode = AutoScaleMode.Font;
       ClientSize = new Size(965, 572);
+      Controls.Add(txtAppPath);
       Controls.Add(label2);
       Controls.Add(label1);
       Controls.Add(menuStrip1);
       MainMenuStrip = menuStrip1;
       Name = "FormA01";
       Text = "FormA01";
+      Load += FormA01_Load;
       menuStrip1.ResumeLayout(false);
       menuStrip1.PerformLayout();
       ResumeLayout(false);
@@ -119,5 +129,6 @@
     private ToolStripMenuItem 第一個功能ToolStripMenuItem;
     private ToolStripMenuItem 第二個指令ToolStripMenuItem;
     private Label label2;
+    private TextBox txtAppPath;
   }
 }
