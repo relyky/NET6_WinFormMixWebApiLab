@@ -61,5 +61,8 @@ public class DeliveryBag
   public string Receiver { get; set; } = string.Empty;
   public string Subject { get; set; } = string.Empty;
   public DateTime TimeStamp { get; private set; } = DateTime.Now;
+
+#pragma warning disable CS8618 // 退出建構函式時，不可為 Null 的欄位必須包含非 Null 值。請考慮宣告為可為 Null。
   public object Content { get; set; }
+#pragma warning restore CS8618 // 退出建構函式時，不可為 Null 的欄位必須包含非 Null 值。請考慮宣告為可為 Null。
 }
