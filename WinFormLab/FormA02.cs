@@ -42,12 +42,21 @@ namespace WinFormLab
 
     private void btnSwagger_Click(object sender, EventArgs e)
     {
-      using var http = new HttpClient();
-      var api = new Client(@"https://localhost:7232", http);
-      var result = api.WeatherForecast();
+      try
+      {
+        using var http = new HttpClient();
+        var api = new Client(@"https://localhost:7232", http);
+        var result = api.WeatherForecast();
 
-      var json = JsonConvert.SerializeObject(result);
-      textBox1.AppendText($"{json}{Environment.NewLine}");
+        var json = JsonConvert.SerializeObject(result);
+        textBox1.AppendText($"{json}{Environment.NewLine}");
+      }
+      catch
+      (Exception ex)
+      {
+        MessageBox.Show(ex.Message, "出現例外！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        Debugger.Break();
+      }
     }
 
     private void btnRefit_Click(object sender, EventArgs e)
