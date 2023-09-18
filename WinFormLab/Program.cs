@@ -54,6 +54,11 @@ internal static class Program
           .ConfigureHttpClient(http => http.BaseAddress = new Uri(config["WebApi1Url"]!))
           .AddHttpMessageHandler<AuthHeaderHandler>(); ;
 
+        //# WebApi2
+        services.AddRefitClient<WinFormLab.RefitClient.IValuesApi>()
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri("https://localhost:7138/"))
+          .AddHttpMessageHandler<AuthHeaderHandler>(); ;
+
         // 註冊應用表單
         services.AddScoped<MainForm>();
         services.AddTransient<LoginDialog>();
@@ -63,6 +68,7 @@ internal static class Program
         services.AddTransient<FormA04>();
         services.AddTransient<FormA05>();
         services.AddTransient<FormA06>();
+        services.AddTransient<FormA07>();
       });
 
       builder.UseSerilog();

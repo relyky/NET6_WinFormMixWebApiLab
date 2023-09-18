@@ -37,7 +37,7 @@ namespace WinFormLab
       txtAccount.Focus();
     }
 
-    private void btnLogin_Click(object sender, EventArgs e)
+    private async void btnLogin_Click(object sender, EventArgs e)
     {
       try
       {
@@ -64,8 +64,7 @@ namespace WinFormLab
           })
         };
 
-        string token = RefitHelper.RunSync(() => _bizApi.GenerateTokenAsync(request));
-        //string token = Task.Run(async() => await _bizApi.GenerateTokenAsync(request)).GetAwaiter().GetResult();
+        string token = await _bizApi.GenerateTokenAsync(request);
 
         AppDomain.CurrentDomain.SetData(@"AUTH_TOKEN", token);
 

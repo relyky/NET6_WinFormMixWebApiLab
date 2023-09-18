@@ -33,7 +33,7 @@ public partial class FormA04 : Form
   }
 
   #region Helper 
-  List<UploadResult>? UploadFiles(IEnumerable<string> filePathList)
+  async Task<List<UploadResult>?> UploadFilesAsync(IEnumerable<string> filePathList)
   {
     List<FileStream> fsBuff = new List<FileStream>(); // used to release
     try
@@ -57,7 +57,7 @@ public partial class FormA04 : Form
       }
 
       //var uploadResults = Task.Run(async () => await _bizApi.UploadFileAsync(content)).GetAwaiter().GetResult();
-      var uploadResults = RefitHelper.RunSync(() => _bizApi.UploadFileAsync(content));
+      var uploadResults = await _bizApi.UploadFileAsync(content);
 
       return uploadResults;
     }
@@ -73,13 +73,13 @@ public partial class FormA04 : Form
     }
   }
 
-  (byte[] fileBlob, string filename) DownloadFile(Guid id)
+  async Task<(byte[] fileBlob, string filename)> DownloadFileAsync(Guid id)
   {
     try
     {
       //HttpContent content = Task.Run(async () => await _bizApi.DowloadFileAsync(id)).GetAwaiter().GetResult();
-      HttpContent content = RefitHelper.RunSync(() => _bizApi.DowloadFileAsync(id));
-      byte[] fileBlob = content.ReadAsByteArrayAsync().Result;
+      HttpContent content = await _bizApi.DowloadFileAsync(id);
+      byte[] fileBlob = await content.ReadAsByteArrayAsync();
 
       string filenameU = content.Headers.GetValues("Content-Disposition").First().Split("filename*=UTF-8''")[1];
       string filename = Uri.UnescapeDataString(filenameU); // 解碼
@@ -95,13 +95,13 @@ public partial class FormA04 : Form
 
   #endregion
 
-  void button1_Click(object sender, EventArgs e)
+  async void button1_Click(object sender, EventArgs e)
   {
     try
     {
       if (DialogResult.OK == openFileDialog1.ShowDialog())
       {
-        var uploadResults = UploadFiles(openFileDialog1.FileNames);
+        var uploadResults = await UploadFilesAsync(openFileDialog1.FileNames);
         if (uploadResults != null)
         {
           foreach (var uploadResult in uploadResults)
@@ -117,14 +117,14 @@ public partial class FormA04 : Form
     }
   }
 
-  void button2_Click(object sender, EventArgs e)
+  async void button2_Click(object sender, EventArgs e)
   {
     try
     {
       bool f_testFail = false;
       Guid id = f_testFail ? Guid.Empty : Guid.NewGuid();
 
-      (byte[] fileBlob, string filename) = DownloadFile(id);
+      (byte[] fileBlob, string filename) = await DownloadFileAsync(id);
 
       string downFolder = @"C:\Temp";
       string downFilePath = Path.Combine(downFolder, filename);

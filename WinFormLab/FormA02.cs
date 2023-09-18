@@ -59,11 +59,11 @@ namespace WinFormLab
       }
     }
 
-    private void btnRefit_Click(object sender, EventArgs e)
+    private async void btnRefit_Click(object sender, EventArgs e)
     {
       try
       {
-        var result = RefitHelper.RunSync(()=> _bizApi.WeatherForecastAsync());
+        var result = await _bizApi.WeatherForecastAsync();
 
         var json = JsonConvert.SerializeObject(result);
         textBox1.AppendText($"{json}{Environment.NewLine}");
