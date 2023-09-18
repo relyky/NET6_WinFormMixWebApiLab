@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using CommonRes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi1.Controllers;
 
@@ -20,6 +21,7 @@ public class WeatherForecastController : ControllerBase
   }
 
   [HttpGet(Name = "GetWeatherForecast")]
+  [Authorize]
   public IEnumerable<WeatherForecast> Get()
   {
     return Enumerable.Range(1, 5).Select(index => new WeatherForecast
