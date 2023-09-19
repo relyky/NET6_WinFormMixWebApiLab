@@ -29,6 +29,8 @@
     private void InitializeComponent()
     {
       label1 = new Label();
+      button1 = new Button();
+      textBox1 = new TextBox();
       SuspendLayout();
       // 
       // label1
@@ -41,11 +43,31 @@
       label1.TabIndex = 0;
       label1.Text = "DEMO Form 01";
       // 
+      // button1
+      // 
+      button1.Location = new Point(94, 115);
+      button1.Name = "button1";
+      button1.Size = new Size(94, 29);
+      button1.TabIndex = 1;
+      button1.Text = "button1";
+      button1.UseVisualStyleBackColor = true;
+      button1.Click += button1_Click;
+      // 
+      // textBox1
+      // 
+      textBox1.Location = new Point(44, 176);
+      textBox1.Multiline = true;
+      textBox1.Name = "textBox1";
+      textBox1.Size = new Size(696, 232);
+      textBox1.TabIndex = 2;
+      // 
       // DeomForm01
       // 
       AutoScaleDimensions = new SizeF(9F, 19F);
       AutoScaleMode = AutoScaleMode.Font;
       ClientSize = new Size(800, 450);
+      Controls.Add(textBox1);
+      Controls.Add(button1);
       Controls.Add(label1);
       Name = "DeomForm01";
       Text = "DeomForm01";
@@ -57,5 +79,7 @@
     #endregion
 
     private Label label1;
+    private Button button1;
+    private TextBox textBox1;
   }
 }

@@ -57,7 +57,12 @@ internal static class Program
         //# WebApi2
         services.AddRefitClient<WinFormLab.RefitClient.IValuesApi>()
           .ConfigureHttpClient(http => http.BaseAddress = new Uri("https://localhost:7138/"))
-          .AddHttpMessageHandler<AuthHeaderHandler>(); ;
+          .AddHttpMessageHandler<AuthHeaderHandler>();
+
+        //# DemoSysAPI
+        services.AddRefitClient<DemoSysUI.RefitClient.IMyValueApi>()
+          .ConfigureHttpClient(http => http.BaseAddress = new Uri("https://localhost:7014/"))
+          .AddHttpMessageHandler<AuthHeaderHandler>();
 
         // 註冊應用表單
         services.AddScoped<MainForm>();
