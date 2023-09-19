@@ -25,6 +25,8 @@ namespace WinFormLab
     {
       try
       {
+        this.Cursor = Cursors.WaitCursor;
+
         Form? child = this.MdiChildren.FirstOrDefault(c => c.GetType() == formType);
         if (child == null)
         {
@@ -45,6 +47,10 @@ namespace WinFormLab
       {
         MessageBox.Show(ex.Message, "¥X²{¨Ò¥~¡I", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         Debugger.Break();
+      }
+      finally 
+      {
+        this.Cursor = Cursors.Default;
       }
     }
 
