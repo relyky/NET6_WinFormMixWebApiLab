@@ -47,6 +47,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CommonRes\CommonRes.csproj" />
+    <ProjectReference Include="..\DemoSysUI\DemoSysUI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

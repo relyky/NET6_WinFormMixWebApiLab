@@ -69,6 +69,7 @@ internal static class Program
         services.AddTransient<FormA05>();
         services.AddTransient<FormA06>();
         services.AddTransient<FormA07>();
+        services.AddTransient<DemoSysUI.DeomForm01>();
       });
 
       builder.UseSerilog();
