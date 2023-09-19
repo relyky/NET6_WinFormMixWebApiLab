@@ -43,7 +43,7 @@ public class ValuesController : ControllerBase
   public MyValue? Put([FromBody] MyValue formData)
   {
     int idx = _values.FindIndex(c => c.Id == formData.Id);
-    if (idx > 0)
+    if (idx >= 0)
     {
       _values[idx].Value = formData.Value;
       return _values[idx];
@@ -57,7 +57,7 @@ public class ValuesController : ControllerBase
   public int Delete(int id)
   {
     int idx = _values.FindIndex(c => c.Id == id);
-    if(idx > 0)
+    if(idx >= 0)
     {
       _values.RemoveAt(idx);
       return 1;
